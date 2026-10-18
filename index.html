@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Revista Lost — arte, cultura e contracultura independente.">
+  <title>REVISTA LOST — Publicação independente</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #f2f0eb;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 24px 6%;
+      border-bottom: 1px solid #393939;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: clamp(32px, 8vw, 58px);
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: -4px;
+      color: #e52b36;
+    }
+
+    .tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      line-height: 1.7;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      padding: 65px 6% 45px;
+    }
+
+    .eyebrow {
+      color: #e52b36;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(43px, 11vw, 100px);
+      line-height: .88;
+      letter-spacing: -4px;
+      text-transform: uppercase;
+      max-width: 850px;
+    }
+
+    h1 span {
+      color: #e52b36;
+    }
+
+    .intro p {
+      margin-top: 25px;
+      color: #b6b6b6;
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    .line {
+      border: 0;
+      border-top: 1px solid #444;
+      margin: 0 6%;
+    }
+
+    .section {
+      padding: 38px 6% 60px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+
+    .number {
+      color: #e52b36;
+      font-size: 12px;
+    }
+
+    .cover {
+      background:
+        radial-gradient(ellipse at 80% 25%,
+          #5b1018 0%, transparent 48%),
+        linear-gradient(140deg, #262020, #080808 70%);
+      min-height: 330px;
+      padding: 25px;
+      border: 1px solid #474040;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cover::after {
+      content: "LOST";
+      position: absolute;
+      font-size: clamp(100px, 28vw, 240px);
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: -12px;
+      color: #ffffff0a;
+      right: -12px;
+      bottom: 35px;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    .cover-top, .cover-bottom {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-top {
+      font-size: 10px;
+      letter-spacing: 3px;
+    }
+
+    .cover h3 {
+      font-size: clamp(40px, 10vw, 78px);
+      line-height: .9;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      max-width: 550px;
+      margin-bottom: 18px;
+    }
+
+    .cover-bottom {
+      color: #e52b36;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .note {
+      margin-top: 12px;
+      color: #888;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .archive {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .edition {
+      min-height: 170px;
+      border: 1px solid #393939;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #111;
+      transition: border-color .2s;
+    }
+
+    .edition:hover {
+      border-color: #e52b36;
+    }
+
+    .edition small {
+      color: #e52b36;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .edition h3 {
+      font-size: 22px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .edition p {
+      font-size: 11px;
+      color: #999;
+      margin-top: 12px;
+    }
+
+    .about {
+      padding: 40px 6%;
+      background: #e52b36;
+      color: #080808;
+    }
+
+    .about h2 {
+      font-size: 35px;
+      margin-bottom: 18px;
+    }
+
+    .about p {
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 500px;
+    }
+
+    footer {
+      padding: 28px 6%;
+      font-size: 10px;
+      color: #888;
+      line-height: 2;
+      letter-spacing: 1px;
+    }
+
+    @media (min-width: 700px) {
+      .intro {
+        padding-top: 100px;
+        padding-bottom: 80px;
+      }
+
+      .cover {
+        min-height: 460px;
+      }
+
+      .archive {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .edition {
+        min-height: 210px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="logo" href="#inicio">LOST.</a>
+    <div class="tag">
+      Arte / Cultura<br>
+      Contracultura independente
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" id="inicio">
+      <div class="eyebrow">Publicação independente</div>
+      <h1>O mundo ainda tem <span>muitas páginas em branco.</span></h1>
+      <p>
+        Revista Lost — um espaço para arte, escrita,
+        cultura e perspectivas fora do convencional.
+      </p>
+    </section>
+
+    <hr class="line">
+
+    <section class="section" id="edicoes">
+      <div class="section-heading">
+        <h2>Última edição</h2>
+        <span class="number">Nº 033</span>
+      </div>
+
+      <div class="cover">
+        <div class="cover-top">REVISTA LOST / EDIÇÃO 33</div>
+        <div class="cover-bottom">
+          <h3>Bocas<br>E Bundas</h3>
+          EDIÇÃO DIGITAL
+        </div>
+      </div>
+
+      <p class="note">
+        Área de apresentação da edição. O arquivo completo
+        poderá ser vinculado aqui posteriormente.
+      </p>
+    </section>
+
+    <hr class="line">
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Arquivo Lost</h2>
+        <span class="number">PUBLICAÇÕES</span>
+      </div>
+
+      <div class="archive">
+        <article class="edition">
+          <small>EDIÇÃO Nº 032</small>
+          <div>
+            <h3>Lost 032</h3>
+            <p>Revista digital</p>
+          </div>
+        </article>
+
+        <article class="edition">
+          <small>EDIÇÃO Nº 030</small>
+          <div>
+            <h3>Lost 030</h3>
+            <p>Memórias e cultura</p>
+          </div>
+        </article>
+
+        <article class="edition">
+          <small>EDIÇÃO Nº 029</small>
+          <div>
+            <h3>Lost 029</h3>
+            <p>Arte e escrita</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="note">
+        As edições anteriores serão adicionadas ao arquivo
+        conforme seus materiais forem publicados.
+      </p>
+    </section>
+
+    <section class="about" id="sobre">
+      <h2>Sobre a Lost.</h2>
+      <p>
+        Uma publicação independente que reúne experimentação
+        visual, escrita e cultura alternativa. Um arquivo
+        em construção, aberto a novas perspectivas artísticas.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    REVISTA LOST © 2026<br>
+    PUBLICAÇÃO INDEPENDENTE
+  </footer>
+</body>
+</html>
