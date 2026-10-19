@@ -1,4 +1,4 @@
-# -index.html
+
 Revista lost
 
 <!DOCTYPE html>
